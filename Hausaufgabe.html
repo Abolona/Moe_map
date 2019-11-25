@@ -9,11 +9,10 @@ nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZ
 crossorigin=""></script>
 </head>
 <body>
-<div id="mapid" style="width: 600 px; height: 400 px; position: relative;"></div>
+<div id="mapid" style="width: 600px; height: 400px; position: relative;"></div>
 <script>
-var map = L.map('map').setView([51.505, -0.09], 13);
-var OSM_background =
-L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png').addTo(mymap);
+var mymap = L.map('mapid').setView([51.505, -0.09], 13).setZoom(1);
+var OSM_background = L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png').addTo(mymap);
 //L.marker([51.5, -0.09]).addTo(map)
     //.bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
     //.openPopup();
