@@ -45,16 +45,19 @@
 	// basemap 2:
 	var otm_basemap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
 		attribution: '<a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-	}).addTo(mymap);
+	});
 	
 	// basemap 3:
-	var Stamen_TerrainBackground = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}{r}.{ext}', {
-	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	subdomains: 'abcd',
-	minZoom: 0,
-	maxZoom: 18,
-	ext: 'png'
-});.addTo(mymap);
+	var OpenMapSurfer_Grayscale_basemap = L.tileLayer('https://korona.geog.uni-heidelberg.de/tiles/roadsg/x={x}&y={y}&z={z}', {
+		attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	});
+	
+	// put all basemaps in a list
+	var basemaps = {
+		"Open Street Map DE": osm_basemap,
+		"Open Topo Map": otm_basemap,
+		"Black & White": OpenMapSurfer_Grayscale_basemap
+	};
 	
 
 	
@@ -62,7 +65,7 @@
 	//var legend = L.control.layers(basemaps, null, {}).addTo(mymap); // normal legend
 	var legend = L.control.layers(basemaps, null, {collapsed: false}).addTo(mymap); //advanced legend
 	
-	
+	var legend = L.control.scale({maxWidth: 150, metric: true, imperial: true}).addTo(mymap);
 	
 
 	
