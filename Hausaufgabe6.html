@@ -7413,6 +7413,11 @@
 		});
 	overlay_DTK1000.addTo(mymap)
 	
+	var overlays = {
+		"Earthquakes": overlay_eq_points,
+		"DTK 1 Mio": overlay_DTK1000};
+		
+	var legend = L.control.layers(basemaps, overlays, {collapsed: false}).addTo(mymap);
 	
 </script>
 	
